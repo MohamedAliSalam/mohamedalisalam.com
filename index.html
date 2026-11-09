@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Ali Salam — Software Engineer</title>
+<meta name="description" content="Mohamed Ali Salam — backend developer in Beirut working across Java/Spring and .NET. Trilingual (Arabic, English, French). A few things I've built, and a running coffee habit.">
+<meta name="author" content="Mohamed Ali Salam">
+<!-- Absolute URLs on purpose: LinkedIn/WhatsApp/X scrapers don't resolve
+     relative og:image paths, so a relative path silently renders no preview. -->
+<link rel="canonical" href="https://mohamedalisalam.com/">
+
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://mohamedalisalam.com/">
+<meta property="og:site_name" content="Mohamed Ali Salam">
+<meta property="og:title" content="Mohamed Ali Salam — Software Engineer">
+<meta property="og:description" content="Backend developer in Beirut working across Java/Spring and .NET. Trilingual (Arabic, English, French).">
+<meta property="og:image" content="https://mohamedalisalam.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mohamed Ali Salam — Software Engineer, Beirut">
+<meta property="profile:first_name" content="Mohamed Ali">
+<meta property="profile:last_name" content="Salam">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mohamed Ali Salam — Software Engineer">
+<meta name="twitter:description" content="Backend developer in Beirut working across Java/Spring and .NET. Trilingual (Arabic, English, French).">
+<meta name="twitter:image" content="https://mohamedalisalam.com/og-image.png">
+
+<meta name="theme-color" content="#0B0B0F">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mohamed Ali Salam",
+  "alternateName": "محمد علي سلام",
+  "url": "https://mohamedalisalam.com/",
+  "image": "https://mohamedalisalam.com/assets/photo.jpg",
+  "jobTitle": "Software Engineer",
+  "worksFor": { "@type": "Organization", "name": "TECFRAC" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Beirut", "addressCountry": "LB" },
+  "knowsLanguage": ["ar", "en", "fr"],
+  "sameAs": [
+    "https://www.linkedin.com/in/mohamed-ali-salam",
+    "https://github.com/MohamedAliSalam"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist+Mono:wght@400;500;600&family=Readex+Pro:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Black + violet: near-black ground, one soft violet that does every
+       accent job (buttons, links, hovers, the Backend panel). Picked by
+       Mohamed from five side-by-side palettes on 2026-11-05. */
+    --bg: #0B0B0F;
+    --surface: #141419;
+    --surface-2: #111116;
+    --ink: #F4F4F6;
+    --ink-2: #A3A3B0;
+    --line: #26262F;
+    --line-strong: #4A4A57;
+    --accent: #9B8CFF;
+    --accent-ink: #0B0B0F;
+    --tag: #1D1A30;
+    --tag-ink: #C9C1FF;
+
+    --font-body: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    --font-arabic: 'Readex Pro', 'Bricolage Grotesque', sans-serif;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --wrap: 1240px;
+    --gutter: clamp(20px, 4vw, 56px);
+
+    --z-nav: 60;
+    --z-menu: 50;
+    --z-skip: 70;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); }
+  a:hover { color: var(--ink); }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  section[id], header[id], footer[id] { scroll-margin-top: 80px; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+  .mono { font-family: var(--font-mono); }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: var(--z-skip);
+    background: var(--accent); color: var(--accent-ink); padding: 12px 20px; font-weight: 600;
+  }
+  .skip-link:focus { left: 0; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    min-height: 54px; padding: 0 28px; border-radius: 999px;
+    font: 700 16px/1 var(--font-body); text-decoration: none; cursor: pointer; border: 0;
+    transition: transform .25s var(--ease), filter .2s, border-color .2s, background .2s, color .2s;
+  }
+  .btn-accent { background: var(--accent); color: var(--accent-ink); }
+  .btn-accent:hover { color: var(--accent-ink); transform: translateY(-2px); filter: brightness(1.08); }
+  .btn-line { background: transparent; color: var(--ink); border: 1.5px solid var(--line-strong); font-weight: 600; }
+  .btn-line:hover { color: var(--ink); border-color: var(--ink); }
+  .btn-sm { min-height: 44px; padding: 0 20px; font-size: 14px; font-weight: 600; }
+  .btn-solid { background: var(--ink); color: var(--bg); }
+  .btn-solid:hover { background: var(--accent); color: var(--accent-ink); }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: var(--z-nav);
+    background: rgba(11, 11, 15, 0.82);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s var(--ease);
+  }
+  .nav.scrolled { border-bottom-color: var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
+  .mark {
+    display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 14px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 800; font-size: 18px; letter-spacing: -0.03em;
+  }
+  .mark:hover { color: var(--accent-ink); }
+  .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    position: relative; color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: 15px; padding: 6px 0;
+    transition: color .2s var(--ease);
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--accent);
+    transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .icon-btn {
+    width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    color: var(--ink); border: 1.5px solid var(--line); transition: border-color .2s, color .2s;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .burger {
+    display: none; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--line);
+    background: transparent; cursor: pointer; position: relative;
+  }
+  .burger span, .burger span::before, .burger span::after {
+    content: ""; position: absolute; height: 2px; background: var(--ink); border-radius: 2px;
+    transition: transform .25s var(--ease), background .2s;
+  }
+  .burger span { left: 12px; top: 20px; width: 18px; }
+  .burger span::before { left: 0; top: -6px; width: 18px; }
+  .burger span::after { left: 0; top: 6px; width: 11px; }
+  .burger[aria-expanded="true"] span { background: transparent; }
+  .burger[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
+  .burger[aria-expanded="true"] span::after { width: 18px; transform: translateY(-6px) rotate(-45deg); }
+
+  .menu {
+    position: fixed; inset: 0; z-index: var(--z-menu); background: var(--bg);
+    display: flex; flex-direction: column; gap: 22px; padding: 112px var(--gutter) 40px; overflow-y: auto;
+    transform: translateY(-100%); visibility: hidden;
+    transition: transform .4s var(--ease), visibility 0s linear .4s;
+  }
+  .menu.open { transform: none; visibility: visible; transition: transform .4s var(--ease); }
+  .menu a.menu-link { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; text-decoration: none; color: var(--ink); font-variation-settings: 'wdth' 92; }
+  .menu a.menu-link:hover { color: var(--accent); }
+  .menu-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .burger { display: inline-block; }
+  }
+  @media (max-width: 560px) {
+    .nav-actions .icon-btn, .nav-actions .btn { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { border-bottom: 1px solid var(--line); overflow: hidden; }
+  .hero-grid {
+    display: flex; flex-wrap: wrap; align-items: flex-end; gap: clamp(40px, 6vw, 80px);
+    padding-top: clamp(48px, 8vw, 104px); padding-bottom: clamp(64px, 8vw, 112px);
+  }
+  .hero-text { flex: 1 1 620px; min-width: 0; }
+  .status {
+    display: inline-flex; align-items: center; gap: 14px; margin: 0 0 30px;
+    font: 400 14px/1 var(--font-mono); color: var(--ink-2);
+    border: 1.5px solid var(--line); border-radius: 999px; padding: 10px 18px 10px 16px;
+  }
+  .pulse { position: relative; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .pulse::after {
+    content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 1.5px solid var(--accent);
+    animation: ping 2s var(--ease) infinite;
+  }
+  @keyframes ping { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+
+  .name {
+    margin: 0; font-weight: 800; font-size: clamp(3.2rem, 9vw, 6rem); line-height: 0.95; letter-spacing: -0.02em;
+    font-variation-settings: 'wdth' 88, 'opsz' 96; min-height: 1.95em;
+  }
+  .name .line { display: block; overflow: hidden; padding-bottom: .04em; }
+  .name .rise { display: block; animation: rise 1s var(--ease) both; }
+  .name .rise.l2 { animation-delay: .1s; }
+  .name .dot { color: var(--accent); }
+  .name[data-lang="ar"] { font-family: var(--font-arabic); font-weight: 700; font-size: clamp(3rem, 8.4vw, 5.6rem); line-height: 1.35; letter-spacing: 0; }
+  .name.swap { animation: swap .6s var(--ease) both; }
+  @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+  @keyframes swap { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+  .lang-tabs { display: flex; gap: 8px; margin: 28px 0 34px; }
+  .lang-tab {
+    font: 500 13px/1 var(--font-mono); min-height: 36px; padding: 0 16px; border-radius: 999px;
+    border: 1.5px solid var(--line); background: transparent; color: var(--ink-2); cursor: pointer;
+    transition: all .2s var(--ease);
+  }
+  .lang-tab:hover { border-color: var(--ink); color: var(--ink); }
+  .lang-tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .lang-tab[data-lang="ar"] { font-family: var(--font-arabic); font-size: 14px; }
+
+  .lede { margin: 0 0 38px; max-width: 50ch; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.55; color: var(--ink-2); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .fade { animation: fade .9s var(--ease) both; }
+  .d1 { animation-delay: .08s; } .d3 { animation-delay: .3s; } .d4 { animation-delay: .42s; } .d5 { animation-delay: .54s; }
+  @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .portrait { flex: 0 1 264px; margin: 0; position: relative; padding: 0 0 30px 30px; }
+  .portrait-frame { aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; background: var(--surface); box-shadow: 0 30px 60px -24px rgba(0,0,0,.6); }
+  .portrait-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Coffee seal: rotating ring text around a +1 button */
+  .seal {
+    position: absolute; left: 0; bottom: 0; width: 120px; height: 120px; border-radius: 50%;
+    background: #0E1020; border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px -12px rgba(0,0,0,.6);
+  }
+  .seal-ring { position: absolute; inset: 0; animation: spin 22s linear infinite; }
+  /* textLength on the textPath stretches the phrase to exactly the ring's
+     circumference (2πr ≈ 351.9 for r=56), so it can never overlap itself. */
+  .seal-ring text { font: 400 10px var(--font-mono); fill: #FFFFFF; text-transform: uppercase; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .seal-btn {
+    position: relative; width: 60px; height: 60px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--accent); color: var(--accent-ink); font-family: var(--font-mono);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    transition: transform .25s var(--ease);
+  }
+  .seal-btn:hover { transform: scale(1.08); }
+  .seal-btn:active { transform: scale(.94); }
+  .seal-btn .n { font-size: 14px; font-weight: 600; }
+  .seal-btn .t { font-size: 9px; letter-spacing: .04em; }
+
+  /* Marquee */
+  .marquee-wrap { background: var(--surface-2); border-top: 1px solid var(--line); overflow: hidden; }
+  .marquee { display: flex; width: max-content; animation: marq 38s linear infinite; }
+  .marquee-wrap:hover .marquee { animation-play-state: paused; }
+  .marquee span { display: inline-flex; align-items: center; gap: 30px; padding: 20px 0 20px 30px; font: 500 16px/1 var(--font-mono); white-space: nowrap; }
+  .marquee span::after { content: ""; width: 7px; height: 7px; background: var(--accent); transform: rotate(45deg); }
+  @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- Sections ---------- */
+  .kicker { margin: 0 0 28px; font: 500 15px/1 var(--font-mono); color: var(--accent); display: flex; align-items: center; gap: 10px; }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: var(--accent); }
+  .h2 {
+    margin: 0; font-weight: 800; font-size: clamp(2.6rem, 5.5vw, 4.4rem); line-height: 0.98; letter-spacing: -0.025em;
+    font-variation-settings: 'wdth' 88, 'opsz' 96;
+  }
+  .section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; margin-bottom: 44px; }
+  .section-head p { margin: 0; color: var(--ink-2); max-width: 40ch; }
+
+  /* About */
+  .about { display: flex; flex-wrap: wrap; gap: clamp(48px, 7vw, 104px); align-items: flex-start; padding-top: clamp(88px, 11vw, 144px); padding-bottom: clamp(72px, 9vw, 112px); }
+  .about-body { flex: 1 1 540px; min-width: 0; }
+  .about-lead { margin: 0 0 32px; max-width: 24ch; font-weight: 700; font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.06; letter-spacing: -0.03em; font-variation-settings: 'opsz' 72; }
+  .about-body p { margin: 0 0 18px; max-width: 58ch; color: var(--ink-2); }
+  .about-body p.strong { font-size: 19px; color: var(--ink); }
+
+  .facts { flex: 1 1 400px; min-width: 0; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 8px 28px; }
+  .fact { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .fact:last-child { border-bottom: 0; }
+  .fact dt { flex: 0 0 140px; font: 400 13px/1.6 var(--font-mono); color: var(--ink-2); padding-top: 3px; }
+  .fact dd { flex: 1 1 180px; margin: 0; font-weight: 600; }
+  .fact .note { display: block; font-size: 14px; font-weight: 400; color: var(--ink-2); }
+  .fact .langs { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .fact .langs small { font-size: 14px; font-weight: 400; color: var(--ink-2); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+  .tags li { font: 400 13px/1 var(--font-mono); background: var(--tag); color: var(--tag-ink); padding: 7px 11px; border-radius: 8px; }
+
+  /* Quote */
+  .quote { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .quote figure { margin: 0 auto; padding-top: clamp(64px, 8vw, 104px); padding-bottom: clamp(64px, 8vw, 104px); display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: flex-start; }
+  .quote svg { flex-shrink: 0; margin-top: 8px; color: var(--accent); }
+  .quote blockquote { flex: 1 1 520px; margin: 0; }
+  .quote blockquote p {
+    margin: 0; max-width: 22ch; font-weight: 800; font-size: clamp(2rem, 4.6vw, 3.8rem); line-height: 1.05; letter-spacing: -0.025em;
+    font-variation-settings: 'wdth' 92, 'opsz' 96;
+  }
+
+  /* Experience */
+  .experience {
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px clamp(48px, 7vw, 104px);
+    padding-top: clamp(88px, 11vw, 144px); padding-bottom: clamp(56px, 7vw, 88px);
+  }
+  .exp-intro { flex: 1 1 280px; min-width: 0; }
+  @media (min-width: 900px) { .exp-intro { position: sticky; top: 112px; max-width: 340px; } }
+  .exp-intro p { margin: 18px 0 0; color: var(--ink-2); max-width: 34ch; }
+  .exp-stats { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .exp-stats li { display: flex; flex-direction: column; gap: 4px; }
+  .exp-stats b { font-weight: 800; font-size: 1.9rem; line-height: 1; letter-spacing: -0.02em; font-variation-settings: 'wdth' 90; }
+  .exp-stats span { font: 400 12px/1.3 var(--font-mono); color: var(--ink-2); }
+
+  /* Timeline: a rail with one dot per role; the rail fills violet as the
+     section scrolls past (only where scroll timelines exist; otherwise it
+     simply shows as a full line). */
+  .roles { position: relative; flex: 2 1 520px; min-width: 0; list-style: none; margin: 0; padding: 0 0 0 36px; display: flex; flex-direction: column; gap: 20px; }
+  .roles::before, .roles::after { content: ""; position: absolute; left: 7px; top: 14px; bottom: 14px; width: 2px; border-radius: 2px; }
+  .roles::before { background: var(--line); }
+  .roles::after { background: linear-gradient(var(--accent), rgba(155, 140, 255, .25)); transform-origin: top; }
+  @supports (animation-timeline: view()) {
+    .roles::after { animation: rail linear both; animation-timeline: view(); animation-range: entry 20% cover 60%; }
+    @keyframes rail { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  }
+  .role { position: relative; }
+  .role-dot {
+    position: absolute; left: -36px; top: 26px; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--line-strong);
+  }
+  .role.current .role-dot { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 5px rgba(155, 140, 255, .18); }
+  .role.current .role-dot::after {
+    content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 1.5px solid var(--accent);
+    animation: ping 2.2s var(--ease) infinite;
+  }
+  .role-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: clamp(22px, 3vw, 32px);
+    transition: border-color .25s var(--ease), transform .35s var(--ease);
+  }
+  .role-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .role.current .role-card { border-color: rgba(155, 140, 255, .55); box-shadow: 0 0 0 1px rgba(155, 140, 255, .12), 0 24px 60px -36px rgba(155, 140, 255, .45); }
+  .role-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px 16px; }
+  .role-head h3 { margin: 0; font-weight: 700; font-size: clamp(1.35rem, 2.2vw, 1.7rem); line-height: 1.15; letter-spacing: -0.02em; }
+  .role-head .org { margin: 4px 0 0; font-weight: 600; color: var(--accent); }
+  .badge { font: 600 12px/1 var(--font-mono); padding: 7px 11px; border-radius: 999px; border: 1.5px solid var(--line-strong); color: var(--ink-2); white-space: nowrap; }
+  .role.current .badge { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .role-meta { margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px 10px; font: 400 13px/1.4 var(--font-mono); color: var(--ink-2); }
+  .role-meta .sep { opacity: .45; }
+  .role-desc { margin: 16px 0 0; max-width: 62ch; color: var(--ink-2); }
+  .role .tags { margin-top: 18px; }
+
+  /* Focus */
+  .focus { padding-top: clamp(56px, 7vw, 88px); padding-bottom: clamp(56px, 7vw, 88px); }
+  .focus-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .panel { flex: 2 1 340px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: clamp(32px, 4vw, 48px); display: flex; flex-direction: column; justify-content: space-between; gap: 48px; min-height: 340px; }
+  .panel.primary { flex: 3 1 460px; background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .panel svg { color: var(--accent); }
+  .panel.primary svg { color: var(--accent-ink); }
+  .panel h3 { margin: 0 0 14px; font-weight: 800; font-size: clamp(1.7rem, 2.6vw, 2.1rem); line-height: 1; letter-spacing: -0.02em; font-variation-settings: 'wdth' 92; }
+  .panel.primary h3 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
+  .panel p { margin: 0; max-width: 46ch; color: var(--ink-2); }
+  .panel.primary p { color: var(--accent-ink); font-size: 18px; opacity: .86; }
+
+  /* Projects */
+  .projects { padding-top: clamp(56px, 7vw, 88px); padding-bottom: clamp(88px, 11vw, 144px); }
+  .project-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .project-list li { border-bottom: 1px solid var(--line); }
+  .proj {
+    position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto 44px; gap: 10px 32px; align-items: center;
+    padding: 30px clamp(16px, 2vw, 28px); text-decoration: none; color: var(--ink); isolation: isolate;
+    transition: color .35s var(--ease);
+  }
+  .proj::before {
+    content: ""; position: absolute; inset: 0; background: var(--accent); border-radius: 4px; z-index: -1;
+    transform: scaleY(0); transform-origin: bottom; transition: transform .45s var(--ease);
+  }
+  .proj:hover, .proj:focus-visible { color: var(--accent-ink); }
+  .proj:hover::before, .proj:focus-visible::before { transform: scaleY(1); }
+  .p-lang { font: 400 14px/1 var(--font-mono); color: var(--ink-2); }
+  .p-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .p-title { font-weight: 700; font-size: clamp(1.35rem, 2.4vw, 1.9rem); line-height: 1.1; letter-spacing: -0.025em; }
+  .p-desc { color: var(--ink-2); max-width: 62ch; }
+  .p-tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: 260px; }
+  .p-tag { font: 400 12px/1 var(--font-mono); color: var(--ink-2); border: 1.5px solid var(--line); padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+  .p-tag.early { font: italic 400 12px/1 var(--font-body); border-style: dashed; }
+  .p-go {
+    width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    border: 1.5px solid var(--line); color: var(--ink);
+    transition: transform .45s var(--ease), background .3s, color .3s, border-color .3s;
+  }
+  .p-lang, .p-desc, .p-tag { transition: color .35s, border-color .35s, opacity .35s; }
+  .proj:hover .p-lang, .proj:hover .p-desc, .proj:focus-visible .p-lang, .proj:focus-visible .p-desc { color: var(--accent-ink); opacity: .82; }
+  .proj:hover .p-tag, .proj:focus-visible .p-tag { border-color: var(--accent-ink); color: var(--accent-ink); }
+  .proj:hover .p-go, .proj:focus-visible .p-go { background: var(--accent-ink); border-color: var(--accent-ink); color: var(--accent); transform: rotate(-45deg); }
+
+  @media (max-width: 640px) {
+    .proj { grid-template-columns: minmax(0, 1fr) 44px; }
+    .p-lang { display: none; }
+    .p-tags { grid-column: 1; grid-row: 2; justify-content: flex-start; max-width: none; }
+    .p-go { grid-column: 2; grid-row: 1; }
+  }
+
+  /* Contact */
+  .contact { border-top: 1px solid var(--line); }
+  .contact .wrap { padding-top: clamp(88px, 11vw, 144px); padding-bottom: clamp(56px, 7vw, 88px); }
+  .contact h2 { margin: 0 0 22px; font-weight: 800; font-size: clamp(3.2rem, 8.5vw, 6rem); line-height: 0.95; letter-spacing: -0.025em; font-variation-settings: 'wdth' 88, 'opsz' 96; }
+  .contact h2 .dot { color: var(--accent); }
+  .contact .intro { margin: 0 0 40px; max-width: 50ch; font-size: 19px; color: var(--ink-2); }
+  .mail-line { margin: 0 0 72px; font-weight: 700; font-size: clamp(1.6rem, 4.2vw, 3.2rem); letter-spacing: -0.03em; line-height: 1.1; overflow-wrap: anywhere; }
+  .mail { position: relative; text-decoration: none; color: var(--ink); }
+  .mail::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -.06em; height: .07em; background: var(--accent);
+    transform: scaleX(.18); transform-origin: left; transition: transform .5s var(--ease);
+  }
+  .mail:hover { color: var(--ink); }
+  .mail:hover::after, .mail:focus-visible::after { transform: scaleX(1); }
+  .contact-list { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 32px; }
+  .contact-list dt { font: 400 13px/1 var(--font-mono); color: var(--ink-2); margin-bottom: 8px; }
+  .contact-list dd { margin: 0; font-weight: 500; }
+  .c-link { color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--line-strong); transition: border-color .2s, color .2s; overflow-wrap: anywhere; }
+  .c-link:hover { color: var(--accent); border-color: var(--accent); }
+  .footer { margin-top: clamp(72px, 9vw, 120px); padding-top: 28px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-2); }
+  .footer [lang="ar"] { font-family: var(--font-arabic); font-weight: 600; }
+
+  /* Scroll reveal: progressive enhancement, content is visible without support */
+  @supports (animation-timeline: view()) {
+    .reveal { animation: fade linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .name .rise, .name.swap, .fade, .reveal, .marquee, .seal-ring, .pulse::after { animation: none !important; }
+    *, *::before, *::after { transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="nav" id="nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a href="#top" class="mark" aria-label="Mohamed Ali Salam, back to top">MS</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#focus">Focus</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="icon-btn" href="https://www.linkedin.com/in/mohamed-ali-salam" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.68H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://github.com/MohamedAliSalam" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+      </a>
+      <a class="btn btn-sm btn-solid" href="resume.html" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        Download CV
+      </a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="menu" id="menu">
+  <a class="menu-link" href="#about">About</a>
+  <a class="menu-link" href="#experience">Experience</a>
+  <a class="menu-link" href="#focus">Focus</a>
+  <a class="menu-link" href="#projects">Projects</a>
+  <a class="menu-link" href="#contact">Contact</a>
+  <div class="menu-row">
+    <a class="btn btn-sm btn-line" href="https://www.linkedin.com/in/mohamed-ali-salam" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-sm btn-line" href="https://github.com/MohamedAliSalam" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn btn-sm btn-accent" href="resume.html" target="_blank" rel="noopener">Download CV</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="status fade d1"><span class="pulse" aria-hidden="true"></span>Software Engineer · Beirut, Lebanon</p>
+
+        <h1 class="name" id="heroName" data-lang="en">
+          <span class="line"><span class="rise">Mohamed</span></span>
+          <span class="line"><span class="rise l2">Ali Salam<span class="dot">.</span></span></span>
+        </h1>
+
+        <div class="lang-tabs fade d3" role="tablist" aria-label="Show my name in">
+          <button class="lang-tab" role="tab" type="button" data-lang="en" aria-selected="true">EN</button>
+          <button class="lang-tab" role="tab" type="button" data-lang="ar" aria-selected="false" lang="ar">عربي</button>
+        </div>
+
+        <p class="lede fade d4">I build backend systems in Java/Spring at TECFRAC, and reach for .NET when a project calls for it. Below: where I've worked and a few things I've built.</p>
+
+        <div class="hero-ctas fade d5">
+          <a class="btn btn-accent" href="#projects">
+            View projects
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-line" href="#contact">Say hi</a>
+        </div>
+      </div>
+
+      <figure class="portrait fade d3">
+        <div class="portrait-frame">
+          <img src="assets/photo.jpg" alt="Mohamed Ali Salam" width="480" height="480">
+        </div>
+        <figcaption class="seal">
+          <svg class="seal-ring" aria-hidden="true" viewBox="0 0 148 148" width="120" height="120">
+            <defs><path id="sealPath" d="M74,74 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs>
+            <text><textPath href="#sealPath" textLength="348" lengthAdjust="spacing">I drink a lot of coffee · and I love to code ·</textPath></text>
+          </svg>
+          <span class="sr-only">I drink a lot of coffee and I love to code.</span>
+          <button type="button" class="seal-btn" id="coffeeBtn" aria-label="Add a cup of coffee. 1357 cups so far">
+            <span class="n" id="coffeeCount">1357</span>
+            <span class="t">+1 cup</span>
+          </button>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee" id="marquee">
+        <span>Java</span><span>Spring</span><span>.NET 8</span><span>C#</span><span>MySQL</span><span>REST APIs</span>
+        <span>JWT</span><span>Blazor</span><span>Flutter</span><span>PHP</span><span>JavaScript</span><span>Git</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="wrap about">
+    <div class="about-body reveal">
+      <h2 class="kicker">About</h2>
+      <p class="about-lead">I'm a backend developer in Beirut.</p>
+      <p class="strong">Most days that means Java/Spring at TECFRAC; before that, I built a .NET API with JWT auth at Monty Mobile.</p>
+      <p>The projects below are things I built for fun along the way: small, pointless, or genuinely useful. Most exist because I wanted to know how something worked, not because anyone asked.</p>
+      <p>I use AI every day as part of how I build, this site included. Vibe-coding is fine by me, as long as I understand every line of code in front of me.</p>
+    </div>
+
+    <dl class="facts reveal">
+      <div class="fact"><dt>Based in</dt><dd>Beirut, Lebanon</dd></div>
+      <div class="fact"><dt>Day job</dt><dd>Java/Spring at TECFRAC<span class="note">The tech arm behind Whish Money</span></dd></div>
+      <div class="fact"><dt>Speaks</dt><dd class="langs"><span>Arabic <small>native</small></span><span>English <small>fluent</small></span><span>French <small>intermediate</small></span></dd></div>
+      <div class="fact"><dt>Languages</dt><dd><ul class="tags"><li>Java</li><li>C#</li><li>JavaScript</li><li>PHP</li><li>Dart</li></ul></dd></div>
+      <div class="fact"><dt>Frameworks &amp; tools</dt><dd><ul class="tags"><li>Spring</li><li>.NET 8</li><li>Blazor</li><li>Flutter</li><li>MySQL</li><li>REST</li><li>JWT</li><li>Git</li><li>NUnit</li></ul></dd></div>
+    </dl>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote" aria-label="How I work with AI">
+    <figure class="wrap reveal">
+      <svg aria-hidden="true" viewBox="0 0 32 24" width="56" height="42" fill="currentColor"><path d="M0 24V14C0 6.3 4.2 1.6 12.4 0l1.4 3.3C9.5 4.6 7.2 7.2 6.9 11H13v13zm18 0V14c0-7.7 4.2-12.4 12.4-14l1.4 3.3c-4.3 1.3-6.6 3.9-6.9 7.7H31v13z"/></svg>
+      <blockquote>
+        <p>The strongest position right now isn’t “AI vs. developer.” It’s a developer who knows how to work with AI well.</p>
+      </blockquote>
+    </figure>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="wrap experience">
+    <div class="exp-intro reveal">
+      <h2 class="h2">Experience</h2>
+      <p>Backend roles in Beirut, on Java/Spring today and .NET before that.</p>
+      <ul class="exp-stats">
+        <li><b>2</b><span>roles</span></li>
+        <li><b data-tenure="2025-02">—</b><span>at TECFRAC</span></li>
+      </ul>
+    </div>
+
+    <ol class="roles">
+      <li class="role current reveal">
+        <span class="role-dot" aria-hidden="true"></span>
+        <article class="role-card">
+          <div class="role-head">
+            <div>
+              <h3>Junior Software Engineer</h3>
+              <p class="org">TECFRAC</p>
+            </div>
+            <span class="badge">Current</span>
+          </div>
+          <p class="role-meta"><time datetime="2025-02">Feb 2025</time> – Present <span class="sep">·</span> <span data-tenure="2025-02">—</span> <span class="sep">·</span> Beirut</p>
+          <p class="role-desc">TECFRAC is the technology arm behind Whish Money, Lebanon's leading digital wallet (Central Bank of Lebanon regulated, 1M+ users). Building and maintaining features inside its Java/Spring platform.</p>
+          <ul class="tags" aria-label="Stack"><li>Java</li><li>Spring</li></ul>
+        </article>
+      </li>
+      <li class="role reveal">
+        <span class="role-dot" aria-hidden="true"></span>
+        <article class="role-card">
+          <div class="role-head">
+            <div>
+              <h3>Junior Backend Developer Intern</h3>
+              <p class="org">Monty Mobile</p>
+            </div>
+            <span class="badge">Internship</span>
+          </div>
+          <p class="role-meta"><time datetime="2024-11">Nov 2024</time> – <time datetime="2024-12">Dec 2024</time> <span class="sep">·</span> 2 mos <span class="sep">·</span> Beirut</p>
+          <p class="role-desc">Built a RESTful API from scratch in .NET 8 with MySQL and JWT authentication, and covered the core request flows with NUnit tests.</p>
+          <ul class="tags" aria-label="Stack"><li>.NET 8</li><li>C#</li><li>MySQL</li><li>JWT</li><li>NUnit</li></ul>
+        </article>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Focus -->
+  <section id="focus" class="wrap focus">
+    <div class="section-head reveal">
+      <h2 class="h2">Focus</h2>
+      <p>Where most of my time actually goes.</p>
+    </div>
+    <div class="focus-grid">
+      <article class="panel primary reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg>
+        <div>
+          <h3>Backend Development</h3>
+          <p>Server-side systems in Java/Spring, sometimes .NET, from a single endpoint to a full enterprise feature, built to be read and maintained by someone other than me at 11pm.</p>
+        </div>
+      </article>
+      <article class="panel reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6M14 4l-4 16"/></svg>
+        <div>
+          <h3>API Design</h3>
+          <p>REST APIs with proper authentication (JWT), clean contracts, and tests that catch real regressions, not just green checkmarks.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="wrap projects">
+    <div class="section-head reveal">
+      <h2 class="h2">Projects</h2>
+      <p>Things I built to understand how they work. Code for each is on GitHub.</p>
+    </div>
+    <ul class="project-list">
+      <li class="reveal"><a class="proj" href="https://github.com/MohamedAliSalam/Blazor-MatchingGame" target="_blank" rel="noopener">
+        <span class="p-lang">C#</span>
+        <span class="p-main"><span class="p-title">Memory Matching Game</span><span class="p-desc">A timed memory-matching game, built to learn component state in a WebAssembly runtime.</span></span>
+        <span class="p-tags"><span class="p-tag">Blazor</span><span class="p-tag early">Early project</span></span>
+        <span class="p-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="sr-only">(code on GitHub, opens in a new tab)</span>
+      </a></li>
+      <li class="reveal"><a class="proj" href="https://github.com/MohamedAliSalam/TicTacToe-Blazor" target="_blank" rel="noopener">
+        <span class="p-lang">C#</span>
+        <span class="p-main"><span class="p-title">Tic-Tac-Toe with AI</span><span class="p-desc">Play a friend or the computer, which takes winning moves and blocks yours. Runs in the browser.</span></span>
+        <span class="p-tags"><span class="p-tag">Blazor</span><span class="p-tag early">Early project</span></span>
+        <span class="p-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="sr-only">(code on GitHub, opens in a new tab)</span>
+      </a></li>
+      <li class="reveal"><a class="proj" href="https://github.com/MohamedAliSalam/Social-Rate-App" target="_blank" rel="noopener">
+        <span class="p-lang">Dart</span>
+        <span class="p-main"><span class="p-title">Social Rate App</span><span class="p-desc">A mobile rating app with authentication, user profiles, and a review/rating system.</span></span>
+        <span class="p-tags"><span class="p-tag">Flutter</span></span>
+        <span class="p-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="sr-only">(code on GitHub, opens in a new tab)</span>
+      </a></li>
+      <li class="reveal"><a class="proj" href="https://github.com/MohamedAliSalam/JSON-parser" target="_blank" rel="noopener">
+        <span class="p-lang">C#</span>
+        <span class="p-main"><span class="p-title">JSON Parser</span><span class="p-desc">A JSON parser built from scratch: tokenization, recursive descent parsing, and validation, no libraries.</span></span>
+        <span class="p-tags"></span>
+        <span class="p-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="sr-only">(code on GitHub, opens in a new tab)</span>
+      </a></li>
+      <li class="reveal"><a class="proj" href="https://github.com/MohamedAliSalam/Custom-wc" target="_blank" rel="noopener">
+        <span class="p-lang">C#</span>
+        <span class="p-main"><span class="p-title">UNIX 'wc' Clone</span><span class="p-desc">A command-line word/line/byte counter replicating core UNIX <code>wc</code> behavior and flags.</span></span>
+        <span class="p-tags"><span class="p-tag">CLI</span></span>
+        <span class="p-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="sr-only">(code on GitHub, opens in a new tab)</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2 class="reveal">Let's talk<span class="dot">.</span></h2>
+      <p class="intro reveal">Reach out about a project, a bug you think I should see, or to argue about Java vs. .NET. I'll probably answer with too much detail either way.</p>
+      <p class="mail-line reveal"><a class="mail" href="mailto:mhdalisalam@gmail.com">mhdalisalam@gmail.com</a></p>
+
+      <dl class="contact-list reveal">
+        <div><dt>Phone</dt><dd><a class="c-link" href="tel:+96178877293">+961 78 877 293</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a class="c-link" href="https://www.linkedin.com/in/mohamed-ali-salam" target="_blank" rel="noopener">linkedin.com/in/mohamed-ali-salam</a></dd></div>
+        <div><dt>GitHub</dt><dd><a class="c-link" href="https://github.com/MohamedAliSalam" target="_blank" rel="noopener">github.com/MohamedAliSalam</a></dd></div>
+        <div><dt>Location</dt><dd>Beirut, Lebanon</dd></div>
+      </dl>
+
+      <footer class="footer">
+        <span>© <span id="year">2026</span> Mohamed Ali Salam</span>
+        <span lang="ar" dir="rtl">محمد علي سلام</span>
+        <a class="c-link" href="#top">Back to top ↑</a>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  /* localStorage throws in some private-mode browsers and when site data
+     is blocked; nothing here is worth breaking the page over. */
+  function store(key, value) {
+    try {
+      if (value === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, value);
+    } catch (e) { return null; }
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Sticky nav hairline once scrolled */
+  var nav = document.getElementById('nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Active nav link follows the section in view */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['top', 'about', 'experience', 'focus', 'projects', 'contact'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
+
+  /* Mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); burger.focus(); } });
+
+  /* Name switcher: EN / Arabic */
+  var heroName = document.getElementById('heroName');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.lang-tab'));
+  var EN = '<span class="line"><span class="rise">Mohamed</span></span><span class="line"><span class="rise l2">Ali Salam<span class="dot">.</span></span></span>';
+  function setLang(lang) {
+    if (heroName.getAttribute('data-lang') === lang) return;
+    heroName.setAttribute('data-lang', lang);
+    heroName.setAttribute('lang', lang);
+    heroName.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    heroName.innerHTML = lang === 'ar' ? 'محمد علي سلام' : EN;
+    heroName.classList.remove('swap');
+    if (!reduceMotion) { void heroName.offsetWidth; heroName.classList.add('swap'); }
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', t.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { setLang(t.getAttribute('data-lang')); }); });
+
+  /* Marquee: duplicate the set once so the -50% loop is seamless */
+  var marquee = document.getElementById('marquee');
+  marquee.innerHTML += marquee.innerHTML;
+
+  /* Coffee counter (just for fun, remembered per visitor) */
+  var BASE_COFFEE = 1357;
+  var coffeeEl = document.getElementById('coffeeCount');
+  var coffeeBtn = document.getElementById('coffeeBtn');
+  var stored = parseInt(store('coffeeCount'), 10);
+  var cups = isNaN(stored) ? BASE_COFFEE : stored;
+  function paintCups() {
+    coffeeEl.textContent = cups;
+    coffeeBtn.setAttribute('aria-label', 'Add a cup of coffee. ' + cups + ' cups so far');
+  }
+  paintCups();
+  coffeeBtn.addEventListener('click', function () { cups += 1; paintCups(); store('coffeeCount', String(cups)); });
+
+  /* Tenure: whole months since the start month, counting the start month
+     itself, shown as "1 yr 9 mos". Recomputed on load so it never goes stale. */
+  function tenure(since) {
+    var p = since.split('-'), now = new Date();
+    var months = (now.getFullYear() - Number(p[0])) * 12 + (now.getMonth() + 1 - Number(p[1])) + 1;
+    var y = Math.floor(months / 12), m = months % 12, out = [];
+    if (y) out.push(y + (y === 1 ? ' yr' : ' yrs'));
+    if (m) out.push(m + (m === 1 ? ' mo' : ' mos'));
+    return out.join(' ') || '1 mo';
+  }
+  document.querySelectorAll('[data-tenure]').forEach(function (el) { el.textContent = tenure(el.getAttribute('data-tenure')); });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
